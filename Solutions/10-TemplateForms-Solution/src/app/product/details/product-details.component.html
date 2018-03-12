@@ -1,0 +1,60 @@
+<form class="product-details" (ngSubmit)="saveProductHandler(item)" #productDetailsForm="ngForm">
+  <div class="row product-details-heading">
+    <div class="col-md-2">
+      <h3>Product Details</h3>
+    </div>
+  </div>
+
+  <div class="product-details">
+    <!--Product Name-->
+    <div class="row">
+      <label class="control-label col-md-2" [class.invalid]="detailsName.invalid">Name</label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" name="name" #detailsName="ngModel" noNumbersToStart required  [(ngModel)]="item.name"/>
+        <div *ngIf="detailsName.invalid && (detailsName.touched || detailsName.dirty)" class="alert alert-danger">
+          <div *ngIf="detailsName.errors['required']">
+            Name is required.
+          </div>
+          <div *ngIf="detailsName.errors['noNumbersToStart']">
+            Name cannot start with a number.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Product Description-->
+    <div class="row">
+      <label class="control-label col-md-2" [class.invalid]="detailsDescription.invalid">Description</label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" name="description" #detailsDescription="ngModel" required [(ngModel)]="item.description"/>
+        <div *ngIf="detailsDescription.invalid && (detailsDescription.touched || detailsDescription.dirty)" class="alert alert-danger">
+          <div *ngIf="detailsDescription.errors['required']">
+            Description is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Procudt Price-->
+    <div class="row">
+      <label class="control-label col-md-2" [class.invalid]="detailsPrice.invalid">Price</label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" name="price" #detailsPrice="ngModel" required [(ngModel)]="item.price"/>
+        <div *ngIf="detailsPrice.invalid && (detailsPrice.touched || detailsPrice.dirty)" class="alert alert-danger">
+          <div *ngIf="detailsPrice.errors['required']">
+            Price is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-md-offset-2">
+        <button type="submit" class="btn btn-block btn-success" [disabled]="productDetailsForm.invalid">SAVE</button>
+      </div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-block btn-primary" routerLink="/Products">CANCEL</button>
+      </div>
+    </div>
+  </div>
+</form>

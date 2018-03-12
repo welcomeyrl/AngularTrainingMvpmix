@@ -1,0 +1,61 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container body-content">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Products: Candy</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let product of products; trackBy: trackByProducts">
+      <span class="product-item" [class.selected]="productDetails?.id === product.id"
+        (click)="productClickHandler(product)">{{ product.name }}</span>
+    </div>
+  </div>
+
+  <hr/>
+
+  <div class="row product-details-heading">
+    <div class="col-md-2">
+      <h3>Product Details</h3>
+    </div>
+    <div class="col-md-3">
+      <button type="button" class="btn btn-block btn-primary" (click)="newProductClickHandler()">CREATE NEW PRODUCT</button>
+    </div>
+  </div>
+
+  <div class="product-details" *ngIf="productDetails">
+    <!--Product Name-->
+    <div class="row">
+      <label class="control-label col-md-2">Name</label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" required [(ngModel)]="productDetails.name"/>
+      </div>
+    </div>
+
+    <!--Product Description-->
+    <div class="row">
+      <label class="control-label col-md-2">Description</label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" required [(ngModel)]="productDetails.description"/>
+      </div>
+    </div>
+
+    <!--Procudt Price-->
+    <div class="row">
+      <label class="control-label col-md-2">Price</label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" required [(ngModel)]="productDetails.price"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-md-offset-2">
+        <button type="button" class="btn btn-block btn-success" (click)="saveClickHandler()">SAVE</button>
+      </div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-block btn-info" (click)="cancelClickHandler()">CANCEL</button>
+      </div>
+    </div>
+  </div>
+</div>

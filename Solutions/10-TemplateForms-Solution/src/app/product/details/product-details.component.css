@@ -1,0 +1,11 @@
+.row:not(:first-child) {
+  padding-top: 10px; }
+
+.product-details .form-control.ng-invalid {
+  border-color: red; }
+.product-details .control-label.invalid {
+  color: red; }
+
+.product-details .alert {
+  margin-bottom: 0;
+  padding: 5px 10px; }

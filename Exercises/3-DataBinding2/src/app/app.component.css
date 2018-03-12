@@ -1,0 +1,9 @@
+.container.body-content {
+  margin-top: 60px; }
+
+.product-item {
+  text-decoration: underline;
+  cursor: pointer; }
+
+.product-details .row {
+  margin-bottom: 10px; }

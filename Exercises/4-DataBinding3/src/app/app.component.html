@@ -1,0 +1,66 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container body-content">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Products: Candy</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <ul>
+        <li class="product-item" [class.selected]="selectedProduct?.name === 'Twix'"
+            (click)="productClickHandler({name: 'Twix', description: 'Left or Right?', price: 10.99})">Twix</li>
+        <li class="product-item" [class.selected]="isSelectedProduct('Snickers')"
+            (click)="productClickHandler({name: 'Snickers', description: 'Peanuts & Caramel', price: 1.99})">Snickers</li>
+        <li class="product-item" [ngClass]="{'selected': selectedProduct?.name === 'M&Ms'}"
+            (click)="productClickHandler({name: 'M&Ms', description: 'Melt in your mouth', price: 0.99})">M&Ms</li>
+        <li class="product-item" [style.color]="isSelectedProduct('Gum') ? 'blue' : null" [style.font-weight]="isSelectedProduct('Gum') ? 'bold' : 'normal'"
+            (click)="productClickHandler({name: 'Gum', description: 'For Chewing & Bubbles', price: 4.99})">Gum</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr/>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Product Details</h3>
+    </div>
+  </div>
+
+  <div class="product-details">
+    <!--Product Name-->
+    <div class="row">
+      <label class="control-label col-md-2">Name</label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" required [(ngModel)]="productDetails.name"/>
+      </div>
+    </div>
+
+    <!--Product Description-->
+    <div class="row">
+      <label class="control-label col-md-2">Description</label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" required [(ngModel)]="productDetails.description"/>
+      </div>
+    </div>
+
+    <!--Procudt Price-->
+    <div class="row">
+      <label class="control-label col-md-2">Price</label>
+      <div class="col-md-6">
+        <input type="text" class="form-control" required [(ngModel)]="productDetails.price"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-md-offset-2">
+        <button type="button" class="btn btn-block btn-success" (click)="saveClickHandler()">SAVE</button>
+      </div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-block btn-primary" (click)="cancelClickHandler()">CANCEL</button>
+      </div>
+    </div>
+  </div>
+</div>

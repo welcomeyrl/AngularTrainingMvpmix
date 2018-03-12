@@ -1,0 +1,19 @@
+.container.body-content {
+  margin-top: 60px; }
+
+.product-item {
+  text-decoration: underline;
+  cursor: pointer; }
+  .product-item.selected {
+    color: blue;
+    font-weight: bold; }
+
+.product-details-heading {
+  margin-bottom: 10px; }
+  .product-details-heading h3 {
+    margin: 0; }
+
+.product-details .row {
+  margin-bottom: 10px; }
+.product-details .form-control.ng-invalid {
+  border-color: red; }

@@ -1,0 +1,7 @@
+<div>
+  <product-details *ngIf="selectedProduct; else productListTemplate" [item]="selectedProduct"
+                   (onSaveClick)="saveProductHandler($event)" (onCancelClick)="selectedProduct = null"></product-details>
+  <ng-template #productListTemplate>
+    <product-list [products]="products" (onSelected)="selectedProductHandler($event)" (onNewClick)="newProductHandler()"></product-list>
+  </ng-template>
+</div>
